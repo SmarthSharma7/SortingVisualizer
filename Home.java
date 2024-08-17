@@ -301,7 +301,6 @@ public class Home extends JFrame {
                         }
                     });
                     clicked = true;
-                    boolean lol;
                 }
             }
         });
