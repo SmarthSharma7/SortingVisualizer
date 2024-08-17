@@ -469,6 +469,7 @@ public class RandomArray extends JFrame implements Runnable {
                 } catch (InterruptedException e) {
                     System.out.println();
                 }
+                Toolkit.getDefaultToolkit().sync();
                 return;
             }
 
@@ -545,6 +546,7 @@ public class RandomArray extends JFrame implements Runnable {
                     } catch (InterruptedException e) {
                         System.out.println();
                     }
+                    Toolkit.getDefaultToolkit().sync();
                 }
             }
         }
