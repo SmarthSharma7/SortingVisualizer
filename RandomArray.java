@@ -549,5 +549,4 @@ public class RandomArray extends JFrame implements Runnable {
             }
         }
     }
-    boolean lol;
 }
