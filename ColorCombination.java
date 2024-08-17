@@ -11,5 +11,6 @@ public class ColorCombination {
         Home.c1 = c1;
         Home.c2 = c2;
         Home.c3 = c3;
+        boolean lol;
     }
 }
