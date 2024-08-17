@@ -1,10 +1,16 @@
 
+// Package
+
 package SortingVisualizer;
+
+// Import statements
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
+
+// RandomArray class
 
 public class RandomArray extends JFrame implements Runnable {
 
@@ -46,8 +52,13 @@ public class RandomArray extends JFrame implements Runnable {
     Color cora = new Color(181, 109, 97);
     Color cop = new Color(154, 205, 50);
 
+    // Strings to store the selected sorting algorithms
+
     static String sortSelected1 = "";
     static String sortSelected2 = "";
+
+    // Collections for determining the already sorted bars
+
     ArrayList<Integer> sortedRects1 = new ArrayList<>();
     ArrayList<Integer> sortedRects2 = new ArrayList<>();
     ArrayList<Integer> sortedRects3 = new ArrayList<>();
@@ -57,7 +68,6 @@ public class RandomArray extends JFrame implements Runnable {
     boolean merging;
     int l, mid, h, k;
     int comp1, comp2, comp11, comp12, comp21, comp22;
-
     int pivot, start, end;
 
     // Sort button
@@ -117,6 +127,7 @@ public class RandomArray extends JFrame implements Runnable {
             selectionSort();
             if (Thread.currentThread().getName().endsWith("First")) done1 = true;
             else done2 = true;
+
         } else if (Thread.currentThread().getName().startsWith("Merge sort")) {
             if (Thread.currentThread().getName().endsWith("First")) {
                 rects4 = rectsFirst;
@@ -138,6 +149,7 @@ public class RandomArray extends JFrame implements Runnable {
                 done2 = true;
             }
         }
+
         if (Home.race.isSelected()) {
             if (done1 && done2) {
                 paint(getGraphics());

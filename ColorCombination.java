@@ -1,4 +1,6 @@
 
+// For themes
+
 package SortingVisualizer;
 
 import java.awt.*;

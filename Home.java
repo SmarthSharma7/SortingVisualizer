@@ -1,10 +1,16 @@
 
+// Package
+
 package SortingVisualizer;
+
+// Import statements
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+// Home class
 
 public class Home extends JFrame {
 
@@ -29,7 +35,27 @@ public class Home extends JFrame {
 
     Font f = new Font("Arial", Font.BOLD, 20);
 
-    // Method for positioning of radio buttons
+    // Constraints' initialization components
+
+    JLabel soa = new JLabel("Size of Array");
+    JTextField tf = new JTextField();
+
+    static Integer[] speeds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    JLabel speed = new JLabel("Select speed");
+    static JComboBox<Integer> cb1 = new JComboBox<>(speeds);
+    static JCheckBox race = new JCheckBox("Race");
+
+    static String[] themes = {"Red", "Green", "Blue", "Brown", "Black"};
+    JLabel st = new JLabel("Select theme");
+    static JComboBox<String> cb2 = new JComboBox<>(themes);
+
+    JRadioButton rb1 = new JRadioButton("Bubble sort");
+    JRadioButton rb2 = new JRadioButton("Insertion sort");
+    JRadioButton rb3 = new JRadioButton("Selection sort");
+    JRadioButton rb4 = new JRadioButton("Merge sort");
+    JRadioButton rb5 = new JRadioButton("Quick sort");
+
+    // Method for positioning of radio buttons and their listeners
 
     public void setPosition(JRadioButton b, double mul) {
         add(b);
@@ -57,25 +83,6 @@ public class Home extends JFrame {
         });
     }
 
-    // Constraints' initialization components
-
-    JLabel soa = new JLabel("Size of Array");
-    JTextField tf = new JTextField();
-
-    static Integer[] speeds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    JLabel speed = new JLabel("Select speed");
-    static JComboBox<Integer> cb1 = new JComboBox<>(speeds);
-    static JCheckBox race = new JCheckBox("Race");
-
-    static String[] themes = {"Red", "Green", "Blue", "Brown", "Black"};
-    JLabel st = new JLabel("Select theme");
-    static JComboBox<String> cb2 = new JComboBox<>(themes);
-
-    JRadioButton rb1 = new JRadioButton("Bubble sort");
-    JRadioButton rb2 = new JRadioButton("Insertion sort");
-    JRadioButton rb3 = new JRadioButton("Selection sort");
-    JRadioButton rb4 = new JRadioButton("Merge sort");
-    JRadioButton rb5 = new JRadioButton("Quick sort");
     int selectedCount;
     String sorts = "";
 
@@ -157,6 +164,8 @@ public class Home extends JFrame {
                     add(cb1);
                     cb1.setFont(f);
                     cb1.setBounds(maxw / 2, (int) (maxh / 5.7), (int) (maxw / 9.6), (int) (maxh / 21.6));
+
+                    // Race checkbox
 
                     add(race);
                     race.setBounds((int) (maxw / 1.63), (int) (maxh / 5.7), (maxw / 20), (int) (maxh / 21.6));
@@ -271,7 +280,7 @@ public class Home extends JFrame {
                                 new RandomArray();
                                 setVisible(false);
                             } else {
-                                JOptionPane.showMessageDialog(null, "Please select two sorting algorithms to have a race");
+                                JOptionPane.showMessageDialog(null, "Please select exactly two sorting algorithms to have a race");
                                 selectedCount = 0;
                                 sorts = "";
                             }
