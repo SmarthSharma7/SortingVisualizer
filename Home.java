@@ -286,7 +286,7 @@ public class Home extends JFrame {
                             }
                         } else {
                             if (!rb1.isSelected() && !rb2.isSelected() && !rb3.isSelected() && !rb4.isSelected() && !rb5.isSelected()) {
-                                JOptionPane.showMessageDialog(null, "Please select a sorting algorithm");
+                                JOptionPane.showMessageDialog(null, "Please select exactly one sorting algorithm");
                             } else {
                                 if (rb1.isSelected()) sorts = rb1.getText();
                                 if (rb2.isSelected()) sorts = rb2.getText();
