@@ -314,7 +314,7 @@ public class RandomArray extends JFrame implements Runnable {
         sortedRects3.add(lb);
     }
 
-    // Partition
+    // Partition of array
 
     public int partition(ArrayList<Integer> rects, int lb, int ub) {
 
