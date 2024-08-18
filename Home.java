@@ -71,16 +71,6 @@ public class Home extends JFrame {
             System.out.println();
         }
         b.setBounds((int) (maxw / 2.23), i, (int) (maxw / 9.6), 50);
-
-        b.addActionListener(x -> {
-            if (!race.isSelected()) {
-                if (!b.getText().equals(rb1.getText())) rb1.setSelected(false);
-                if (!b.getText().equals(rb2.getText())) rb2.setSelected(false);
-                if (!b.getText().equals(rb3.getText())) rb3.setSelected(false);
-                if (!b.getText().equals(rb4.getText())) rb4.setSelected(false);
-                if (!b.getText().equals(rb5.getText())) rb5.setSelected(false);
-            }
-        });
     }
 
     int selectedCount;
@@ -251,53 +241,52 @@ public class Home extends JFrame {
                     // On 'generate' button click
 
                     generate.addActionListener(x -> {
-                        if (race.isSelected()) {
-                            if (rb1.isSelected()) {
-                                sorts += rb1.getText();
-                                selectedCount++;
-                            }
-                            if (rb2.isSelected()) {
-                                sorts += rb2.getText();
-                                selectedCount++;
-                            }
-                            if (rb3.isSelected()) {
-                                sorts += rb3.getText();
-                                selectedCount++;
-                            }
-                            if (rb4.isSelected()) {
-                                sorts += rb4.getText();
-                                selectedCount++;
-                            }
-                            if (rb5.isSelected()) {
-                                sorts += rb5.getText();
-                                selectedCount++;
-                            }
-                            if (selectedCount == 2) {
-                                RandomArray.sortSelected1 = sorts.substring(0, sorts.indexOf("sort") + 4);
-                                RandomArray.sortSelected2 = sorts.substring(sorts.indexOf("sort") + 4);
-                                sorts = "";
-                                selectedCount = 0;
-                                new RandomArray();
-                                setVisible(false);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Please select exactly two sorting algorithms to have a race");
-                                selectedCount = 0;
-                                sorts = "";
-                            }
-                        } else {
-                            if (!rb1.isSelected() && !rb2.isSelected() && !rb3.isSelected() && !rb4.isSelected() && !rb5.isSelected()) {
-                                JOptionPane.showMessageDialog(null, "Please select exactly one sorting algorithm");
-                            } else {
-                                if (rb1.isSelected()) sorts = rb1.getText();
-                                if (rb2.isSelected()) sorts = rb2.getText();
-                                if (rb3.isSelected()) sorts = rb3.getText();
-                                if (rb4.isSelected()) sorts = rb4.getText();
-                                if (rb5.isSelected()) sorts = rb5.getText();
-                                RandomArray.sortSelected1 = sorts;
-                                sorts = "";
-                                new RandomArray();
-                                setVisible(false);
-                            }
+                        if (rb1.isSelected()) {
+                            sorts += rb1.getText();
+                            selectedCount++;
+                        }
+                        if (rb2.isSelected()) {
+                            sorts += rb2.getText();
+                            selectedCount++;
+                        }
+                        if (rb3.isSelected()) {
+                            sorts += rb3.getText();
+                            selectedCount++;
+                        }
+                        if (rb4.isSelected()) {
+                            sorts += rb4.getText();
+                            selectedCount++;
+                        }
+                        if (rb5.isSelected()) {
+                            sorts += rb5.getText();
+                            selectedCount++;
+                        }
+                        if (selectedCount != 1 && !race.isSelected()) {
+                            JOptionPane.showMessageDialog(null, "Please select exactly 1 sorting algorithm");
+                            sorts = "";
+                            selectedCount = 0;
+                            return;
+                        }
+                        if (selectedCount == 1 && !race.isSelected()) {
+                            RandomArray.sortSelected1 = sorts;
+                            sorts = "";
+                            selectedCount = 0;
+                            new RandomArray();
+                            setVisible(false);
+                        }
+                        if (selectedCount != 2 && race.isSelected()) {
+                            JOptionPane.showMessageDialog(null, "Please select exactly 2 sorting algorithms");
+                            sorts = "";
+                            selectedCount = 0;
+                            return;
+                        }
+                        if (selectedCount == 2 && race.isSelected()) {
+                            RandomArray.sortSelected1 = sorts.substring(0, sorts.indexOf("sort") + 4);
+                            RandomArray.sortSelected2 = sorts.substring(sorts.indexOf("sort") + 4);
+                            sorts = "";
+                            selectedCount = 0;
+                            new RandomArray();
+                            setVisible(false);
                         }
                     });
                     clicked = true;
