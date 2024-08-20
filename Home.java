@@ -94,7 +94,7 @@ public class Home extends JFrame {
 
         add(background);
         background.setBounds(0, 0, maxw, maxh);
-        background.setIcon(new ImageIcon("svp.jpeg"));
+        background.setIcon(new ImageIcon("src//SortingVisualizer//svb.jpeg"));
 
         // Adding the components on any key pressed
 
