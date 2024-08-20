@@ -94,7 +94,7 @@ public class Home extends JFrame {
 
         add(background);
         background.setBounds(0, 0, maxw, maxh);
-        background.setIcon(new ImageIcon("C:\\Users\\sam\\AppData\\Local\\Packages\\microsoft.windowscommunicationsapps_8wekyb3d8bbwe\\LocalState\\Files\\S0\\3\\Attachments\\31ad3a53-3173-4d64-805d-ae40e7d4d770-01~2[548].jpeg"));
+        background.setIcon(new ImageIcon("svp.jpeg"));
 
         // Adding the components on any key pressed
 
