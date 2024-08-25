@@ -384,6 +384,7 @@ public class RandomArray extends JFrame implements Runnable {
                 }
                 startx += 3 + width;
                 try {
+                    //noinspection BusyWait
                     Thread.sleep(1500 / size);
                 } catch (InterruptedException e) {
                     System.out.println();
