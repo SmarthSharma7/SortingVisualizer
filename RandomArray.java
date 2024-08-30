@@ -7,12 +7,16 @@ package SortingVisualizer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
 // RandomArray class
 
 public class RandomArray extends JFrame implements Runnable {
+
+    BufferedImage buffer;
+    Graphics2D bufferGraphics;
 
     // Threads to execute the sorting algorithms
 
@@ -21,7 +25,7 @@ public class RandomArray extends JFrame implements Runnable {
 
     // Delay
 
-    int delay = 330 / (Home.cb1.getSelectedIndex() + 1);
+    int delay = 100 / (Home.cb1.getSelectedIndex() + 1);
 
     boolean executed = false;
 
@@ -85,7 +89,8 @@ public class RandomArray extends JFrame implements Runnable {
         setResizable(false);
         setVisible(true);
         setLayout(null);
-        createBufferStrategy(4);
+        buffer = new BufferedImage(Home.maxw, Home.maxh, BufferedImage.TYPE_INT_ARGB);
+        bufferGraphics = buffer.createGraphics();
 
         // On 'sort' button click
 
@@ -357,7 +362,9 @@ public class RandomArray extends JFrame implements Runnable {
 
     // The visualization using paint method
 
-    public void paint(Graphics g) {
+    public void paint(Graphics gg) {
+
+        Graphics2D g = (Graphics2D) bufferGraphics.create();
 
         // For creating random array
 
@@ -365,20 +372,20 @@ public class RandomArray extends JFrame implements Runnable {
 
             if (executed) return;
 
-            g.setColor(Home.c1);
-            g.fillRect(0, 0, Home.maxw, Home.maxh);
+            gg.setColor(Home.c1);
+            gg.fillRect(0, 0, Home.maxw, Home.maxh);
 
             width = ((Home.maxw - 40) - ((size - 1) * 3)) / size;
             for (int i = 0; i < size; i++) {
                 height = rand.nextInt(10, (int) (Home.maxh / 1.1));
-                g.setColor(Home.c2);
+                gg.setColor(Home.c2);
                 if (!Home.race.isSelected()) {
-                    g.fillRect(startx, Home.maxh - height, width, height);
+                    gg.fillRect(startx, Home.maxh - height, width, height);
                     rectsFirst.add(height);
                 } else {
                     height /= 2;
-                    g.fillRect(startx, (Home.maxh / 2) - height, width, height);
-                    g.fillRect(startx, Home.maxh - height, width, height);
+                    gg.fillRect(startx, (Home.maxh / 2) - height, width, height);
+                    gg.fillRect(startx, Home.maxh - height, width, height);
                     rectsFirst.add(height);
                     rectsSecond.add(height);
                 }
@@ -453,6 +460,7 @@ public class RandomArray extends JFrame implements Runnable {
                     g.fillRect(startx, Home.maxh - rectsFirst.get(i), width, rectsFirst.get(i));
                     startx += 3 + width;
                 }
+                gg.drawImage(buffer, 0, 0, this);
 
                 if (done2) {
                     g.setColor(Home.c1);
@@ -463,6 +471,7 @@ public class RandomArray extends JFrame implements Runnable {
                         g.fillRect(startxx, (Home.maxh / 2) - ii, width, ii);
                         startxx += 3 + width;
                     }
+                    gg.drawImage(buffer, 0, 0, this);
                 }
 
                 try {
@@ -470,7 +479,6 @@ public class RandomArray extends JFrame implements Runnable {
                 } catch (InterruptedException e) {
                     System.out.println();
                 }
-                Toolkit.getDefaultToolkit().sync();
                 return;
             }
 
@@ -530,6 +538,7 @@ public class RandomArray extends JFrame implements Runnable {
                         g.fillRect(startxx, (Home.maxh / 2) - rectsSecond.get(i), width, rectsSecond.get(i));
                         startxx += 3 + width;
                     }
+                    gg.drawImage(buffer, 0, 0, this);
 
                     if (done1) {
                         g.setColor(Home.c1);
@@ -540,6 +549,7 @@ public class RandomArray extends JFrame implements Runnable {
                             g.fillRect(startx, Home.maxh - ii, width, ii);
                             startx += 3 + width;
                         }
+                        gg.drawImage(buffer, 0, 0, this);
                     }
 
                     try {
@@ -547,7 +557,6 @@ public class RandomArray extends JFrame implements Runnable {
                     } catch (InterruptedException e) {
                         System.out.println();
                     }
-                    Toolkit.getDefaultToolkit().sync();
                 }
             }
         }
