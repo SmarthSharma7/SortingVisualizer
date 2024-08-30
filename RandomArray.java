@@ -15,6 +15,8 @@ import java.util.Random;
 
 public class RandomArray extends JFrame implements Runnable {
 
+    // Buffer Image to avoid flickering
+
     BufferedImage buffer;
     Graphics2D bufferGraphics;
 
@@ -78,6 +80,8 @@ public class RandomArray extends JFrame implements Runnable {
 
     JButton sort = new JButton("Sort");
 
+    // Constructor
+
     RandomArray() {
 
         // Frame initialization
@@ -89,6 +93,9 @@ public class RandomArray extends JFrame implements Runnable {
         setResizable(false);
         setVisible(true);
         setLayout(null);
+
+        // Buffered Image initialization
+
         buffer = new BufferedImage(Home.maxw, Home.maxh, BufferedImage.TYPE_INT_ARGB);
         bufferGraphics = buffer.createGraphics();
 
