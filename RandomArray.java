@@ -382,7 +382,8 @@ public class RandomArray extends JFrame implements Runnable {
             gg.setColor(Home.c1);
             gg.fillRect(0, 0, Home.maxw, Home.maxh);
 
-            width = ((Home.maxw - 40) - ((size - 1) * 3)) / size;
+            width = ((Home.maxw - 60) - ((size - 1) * 3)) / size;
+            startx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
             for (int i = 0; i < size; i++) {
                 height = rand.nextInt(10, (int) (Home.maxh / 1.1));
                 gg.setColor(Home.c2);
@@ -418,7 +419,7 @@ public class RandomArray extends JFrame implements Runnable {
                 g.setColor(Home.c1);
                 if (!Home.race.isSelected()) g.fillRect(0, 0, Home.maxw, Home.maxh);
                 else g.fillRect(0, (Home.maxh / 2) + 1, Home.maxw, (Home.maxh / 2) - 1);
-                startx = 30;
+                startx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
 
                 for (int i = 0; i < rectsFirst.size(); i++) {
 
@@ -497,7 +498,7 @@ public class RandomArray extends JFrame implements Runnable {
 
                     g.setColor(Home.c1);
                     g.fillRect(0, 0, Home.maxw, Home.maxh / 2);
-                    startxx = 30;
+                    startx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
                     for (int i = 0; i < rectsFirst.size(); i++) {
 
                         switch (sortSelected2) {
