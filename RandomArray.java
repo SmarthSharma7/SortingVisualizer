@@ -93,6 +93,7 @@ public class RandomArray extends JFrame implements Runnable {
         setResizable(false);
         setVisible(true);
         setLayout(null);
+        createBufferStrategy(4);
 
         // Buffered Image initialization
 
@@ -410,6 +411,8 @@ public class RandomArray extends JFrame implements Runnable {
 
         } else {
 
+            createBufferStrategy(1);
+
             // For sorting visualization
 
             // First thread
@@ -498,7 +501,7 @@ public class RandomArray extends JFrame implements Runnable {
 
                     g.setColor(Home.c1);
                     g.fillRect(0, 0, Home.maxw, Home.maxh / 2);
-                    startx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
+                    startxx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
                     for (int i = 0; i < rectsFirst.size(); i++) {
 
                         switch (sortSelected2) {
