@@ -27,7 +27,7 @@ public class RandomArray extends JFrame implements Runnable {
 
     // Delay
 
-    int delay = 330 / (Home.cb1.getSelectedIndex() + 1);
+    int delay = 300 / (Home.cb1.getSelectedIndex() + 1);
 
     boolean executed = false;
 
@@ -476,7 +476,7 @@ public class RandomArray extends JFrame implements Runnable {
                 if (done2) {
                     g.setColor(Home.c1);
                     g.fillRect(0, 0, Home.maxw, Home.maxh / 2);
-                    startxx = 30;
+                    startxx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
                     for (int ii : rectsSecond) {
                         g.setColor(Home.c2);
                         g.fillRect(startxx, (Home.maxh / 2) - ii, width, ii);
@@ -554,7 +554,7 @@ public class RandomArray extends JFrame implements Runnable {
                     if (done1) {
                         g.setColor(Home.c1);
                         g.fillRect(0, (Home.maxh / 2) + 1, Home.maxw, (Home.maxh / 2) - 1);
-                        startx = 30;
+                        startx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
                         for (int ii : rectsFirst) {
                             g.setColor(Home.c2);
                             g.fillRect(startx, Home.maxh - ii, width, ii);
