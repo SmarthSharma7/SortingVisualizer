@@ -27,7 +27,7 @@ public class RandomArray extends JFrame implements Runnable {
 
     // Delay
 
-    int delay = 300 / (Home.cb1.getSelectedIndex() + 1);
+    int delay = 330 / (Home.cb1.getSelectedIndex() + 1);
 
     boolean executed = false;
 
