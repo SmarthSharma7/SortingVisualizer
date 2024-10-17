@@ -113,7 +113,7 @@ public class Home extends JFrame {
                     // Initial value of constraints
 
                     tf.setText("20");
-                    cb1.setSelectedItem((Integer)1);
+                    cb1.setSelectedItem((Integer) 1);
                     cb2.setSelectedItem("Black");
                     cc = new ColorCombination(new Color(15, 15, 15), new Color(246, 237, 227), new Color(230, 193, 122));
                     rb1.setSelected(true);
