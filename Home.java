@@ -40,9 +40,9 @@ public class Home extends JFrame {
     JLabel soa = new JLabel("Size of Array");
     JTextField tf = new JTextField();
 
-    static Integer[] speeds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    static Integer[] speeds = new Integer[10];
     JLabel speed = new JLabel("Select speed");
-    static JComboBox<Integer> cb1 = new JComboBox<>(speeds);
+    static JComboBox<Integer> cb1;
     static JCheckBox race = new JCheckBox("Race");
 
     static String[] themes = {"Red", "Green", "Blue", "Brown", "Black"};
@@ -96,6 +96,9 @@ public class Home extends JFrame {
         background.setBounds(0, 0, maxw, maxh);
         background.setIcon(new ImageIcon("C:\\Users\\Sam\\Documents\\GitHub\\SortingVisualizer\\svb.jpg"));
 
+        for (int i = 0; i < 9; i++) speeds[i] = (Integer) (i + 1);
+        cb1 = new JComboBox<>(speeds);
+
         // Adding the components on any key pressed
 
         addKeyListener(new KeyAdapter() {
@@ -110,7 +113,7 @@ public class Home extends JFrame {
                     // Initial value of constraints
 
                     tf.setText("20");
-                    cb1.setSelectedItem(1);
+                    cb1.setSelectedItem((Integer)1);
                     cb2.setSelectedItem("Black");
                     cc = new ColorCombination(new Color(15, 15, 15), new Color(246, 237, 227), new Color(230, 193, 122));
                     rb1.setSelected(true);
@@ -180,7 +183,7 @@ public class Home extends JFrame {
 
                     // Setting theme on theme selected
 
-                    cb2.addItemListener(x -> {
+                    cb2.addItemListener(_ -> {
                         String s = cb2.getSelectedItem() + "";
 
                         // Red theme
@@ -240,7 +243,7 @@ public class Home extends JFrame {
 
                     // On 'generate' button click
 
-                    generate.addActionListener(x -> {
+                    generate.addActionListener(_ -> {
                         if (rb1.isSelected()) {
                             sorts += rb1.getText();
                             selectedCount++;
@@ -300,7 +303,7 @@ public class Home extends JFrame {
 
     // Main method (entry point)
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         new Home();
     }
 }
