@@ -96,7 +96,7 @@ public class Home extends JFrame {
         background.setBounds(0, 0, maxw, maxh);
         background.setIcon(new ImageIcon("C:\\Users\\Sam\\Documents\\GitHub\\SortingVisualizer\\svb.jpg"));
 
-        for (int i = 0; i < 9; i++) speeds[i] = (Integer) (i + 1);
+        for (int i = 0; i < 9; i++) speeds[i] = i + 1;
         cb1 = new JComboBox<>(speeds);
 
         // Adding the components on any key pressed
@@ -113,7 +113,7 @@ public class Home extends JFrame {
                     // Initial value of constraints
 
                     tf.setText("20");
-                    cb1.setSelectedItem((Integer) 1);
+                    cb1.setSelectedItem(1);
                     cb2.setSelectedItem("Black");
                     cc = new ColorCombination(new Color(15, 15, 15), new Color(246, 237, 227), new Color(230, 193, 122));
                     rb1.setSelected(true);

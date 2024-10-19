@@ -190,14 +190,14 @@ public class RandomArray extends JFrame implements Runnable {
                 if (rects1.get(j) > rects1.get(j + 1)) {
                     temp = rects1.get(j);
                     rects1.set(j, rects1.get(j + 1));
-                    rects1.set(j + 1, (Integer) temp);
+                    rects1.set(j + 1, temp);
                 }
                 comp1 = j;
                 comp2 = j + 1;
                 paint(this.getGraphics());
             }
             count++;
-            sortedRects1.add((Integer) (rectsFirst.size() - count));
+            sortedRects1.add(rectsFirst.size() - count);
         }
     }
 
@@ -212,13 +212,13 @@ public class RandomArray extends JFrame implements Runnable {
             while (j >= 0 && rects2.get(j) > key) {
                 int temp = rects2.get(j + 1);
                 rects2.set(j + 1, rects2.get(j));
-                rects2.set(j, (Integer) temp);
+                rects2.set(j, temp);
                 comp11 = j;
                 comp12 = j + 1;
                 paint(this.getGraphics());
                 j = j - 1;
             }
-            rects2.set(j + 1, (Integer) key);
+            rects2.set(j + 1, key);
         }
     }
 
@@ -239,9 +239,9 @@ public class RandomArray extends JFrame implements Runnable {
             }
             int temp = rects3.get(min_idx);
             rects3.set(min_idx, rects3.get(i));
-            rects3.set(i, (Integer) temp);
+            rects3.set(i, temp);
             count++;
-            sortedRects2.add((Integer) count);
+            sortedRects2.add(count);
         }
     }
 
@@ -287,10 +287,10 @@ public class RandomArray extends JFrame implements Runnable {
         while (i < n1 && j < n2) {
 
             if (L[i] <= R[j]) {
-                rects.set(k, (Integer) L[i]);
+                rects.set(k, L[i]);
                 i++;
             } else {
-                rects.set(k, (Integer) R[j]);
+                rects.set(k, R[j]);
                 j++;
             }
             this.k = k;
@@ -300,14 +300,14 @@ public class RandomArray extends JFrame implements Runnable {
         }
 
         while (i < n1) {
-            rects.set(k, (Integer) L[i]);
+            rects.set(k, L[i]);
             this.k = k;
             paint(this.getGraphics());
             i++;
             k++;
         }
         while (j < n2) {
-            rects.set(k, (Integer) R[j]);
+            rects.set(k, R[j]);
             this.k = k;
             paint(this.getGraphics());
             j++;
@@ -324,7 +324,7 @@ public class RandomArray extends JFrame implements Runnable {
             quickSort(rects, lb, loc - 1);
             quickSort(rects, loc + 1, ub);
         }
-        sortedRects3.add((Integer) lb);
+        sortedRects3.add(lb);
     }
 
     // Partition of array
@@ -352,7 +352,7 @@ public class RandomArray extends JFrame implements Runnable {
             if (start < end) {
                 temp = rects.get(start);
                 rects.set(start, rects.get(end));
-                rects.set(end, (Integer) temp);
+                rects.set(end, temp);
             }
         }
 
@@ -361,8 +361,8 @@ public class RandomArray extends JFrame implements Runnable {
 
         temp = rects.get(lb);
         rects.set(lb, rects.get(end));
-        rects.set(end, (Integer) temp);
-        sortedRects3.add((Integer) end);
+        rects.set(end, temp);
+        sortedRects3.add(end);
         paint(this.getGraphics());
 
         return end;
@@ -390,13 +390,13 @@ public class RandomArray extends JFrame implements Runnable {
                 gg.setColor(Home.c2);
                 if (!Home.race.isSelected()) {
                     gg.fillRect(startx, Home.maxh - height, width, height);
-                    rectsFirst.add((Integer) height);
+                    rectsFirst.add(height);
                 } else {
                     height /= 2;
                     gg.fillRect(startx, (Home.maxh / 2) - height, width, height);
                     gg.fillRect(startx, Home.maxh - height, width, height);
-                    rectsFirst.add((Integer) height);
-                    rectsSecond.add((Integer) height);
+                    rectsFirst.add(height);
+                    rectsSecond.add(height);
                 }
                 startx += 3 + width;
                 try {
@@ -424,7 +424,7 @@ public class RandomArray extends JFrame implements Runnable {
                 else g.fillRect(0, (Home.maxh / 2) + 1, Home.maxw, (Home.maxh / 2) - 1);
                 startx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
 
-                for (Integer i = (Integer) 0; i < rectsFirst.size(); i++) {
+                for (int i = 0; i < rectsFirst.size(); i++) {
 
                     switch (sortSelected1) {
                         case "Bubble sort" -> {
@@ -502,7 +502,7 @@ public class RandomArray extends JFrame implements Runnable {
                     g.setColor(Home.c1);
                     g.fillRect(0, 0, Home.maxw, Home.maxh / 2);
                     startxx = (Home.maxw - (width * size) - (size - 1) * 3) / 2;
-                    for (Integer i = (Integer) 0; i < rectsFirst.size(); i++) {
+                    for (int i = 0; i < rectsFirst.size(); i++) {
 
                         switch (sortSelected2) {
                             case "Bubble sort" -> {
