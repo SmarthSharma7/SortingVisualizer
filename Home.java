@@ -40,9 +40,9 @@ public class Home extends JFrame {
     JLabel soa = new JLabel("Size of Array");
     JTextField tf = new JTextField();
 
-    static Integer[] speeds = new Integer[10];
+    static Integer[] speeds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     JLabel speed = new JLabel("Select speed");
-    static JComboBox<Integer> cb1;
+    static JComboBox<Integer> cb1 = new JComboBox<>(speeds);
     static JCheckBox race = new JCheckBox("Race");
 
     static String[] themes = {"Red", "Green", "Blue", "Brown", "Black"};
@@ -94,10 +94,7 @@ public class Home extends JFrame {
 
         add(background);
         background.setBounds(0, 0, maxw, maxh);
-        background.setIcon(new ImageIcon("C:\\Users\\Sam\\Documents\\GitHub\\SortingVisualizer\\svb.jpg"));
-
-        for (int i = 0; i < 9; i++) speeds[i] = i + 1;
-        cb1 = new JComboBox<>(speeds);
+        background.setIcon(new ImageIcon("/home/smarth-sharma/IdeaProjects/SortingVisualizer/svb.jpg"));
 
         // Adding the components on any key pressed
 
